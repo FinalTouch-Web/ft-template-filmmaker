@@ -9,19 +9,19 @@ const LINES = ["WE SHOOT", "STORIES", "THAT HOLD."];
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[100svh] w-full overflow-hidden bg-paper grain">
+    <section className="relative h-[100svh] w-full overflow-hidden bg-paper grain">
       {/* letterbox bars — paper matte frame, not black */}
       <motion.div
         initial={{ height: "50%" }}
-        animate={{ height: "11%" }}
+        animate={{ height: "5.5rem" }}
         transition={{ delay: 0.3, duration: 0.9, ease: easeSlate }}
         className="absolute top-0 left-0 right-0 bg-paper z-20 border-b border-rule"
       />
       <motion.div
         initial={{ height: "50%" }}
-        animate={{ height: "7%" }}
+        animate={{ height: "3.5rem" }}
         transition={{ delay: 0.3, duration: 0.9, ease: easeSlate }}
-        className="absolute bottom-0 left-0 right-0 bg-paper z-20 border-t border-rule"
+        className="absolute bottom-20 sm:bottom-0 left-0 right-0 bg-paper z-20 border-t border-rule"
       />
 
       {/* hero reel plate — replace <img> with a <video> for client's looping reel */}
@@ -41,8 +41,8 @@ export default function Hero() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_40%,rgba(217,56,21,0.14),transparent_55%)]" />
       </motion.div>
 
-      {/* HUD top */}
-      <div className="absolute top-[13%] left-0 right-0 z-30 px-5 md:px-14 flex justify-between items-start gap-4">
+      {/* HUD top — clears the fixed nav bar */}
+      <div className="absolute top-[6.5rem] left-0 right-0 z-30 px-5 md:px-14 flex justify-between items-start gap-4">
         <motion.div
           initial={{ opacity: 0, x: -10 }}
           animate={{ opacity: 1, x: 0 }}
@@ -70,23 +70,13 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* headline block */}
-      <div className="relative z-30 min-h-[100svh] flex items-end pb-[11%] sm:pb-[10%] px-5 md:px-14">
+      {/* headline block — pinned inside the viewport with safe zones top & bottom */}
+      <div className="absolute top-40 bottom-16 left-0 right-0 z-30 flex flex-col justify-center sm:justify-end px-5 md:px-14">
         <div className="max-w-[1600px] w-full">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.6, duration: 0.6 }}
-            className="inline-flex items-center gap-2 mb-8 bg-paper/85 backdrop-blur-sm border border-rule px-3 py-1.5"
-          >
-            <span className="w-[7px] h-[7px] bg-signal hex" />
-            <span className="h-slate text-ink">— 00 / A CALGARY FILM CREW</span>
-          </motion.div>
-
           <h1
             className="h-display text-ink break-words"
             style={{
-              fontSize: "clamp(44px, 13vw, 210px)",
+              fontSize: "clamp(36px, 11vw, 210px)",
               fontWeight: 900,
               lineHeight: 0.92,
               overflowWrap: "anywhere",
@@ -120,7 +110,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 2.0, duration: 0.9, ease: easeFilmic }}
-            className="mt-8 max-w-xl text-ink text-base md:text-lg leading-relaxed bg-paper/85 backdrop-blur-sm border border-rule p-5 md:p-6"
+            className="mt-4 sm:mt-8 max-w-xl text-ink text-sm sm:text-base md:text-lg leading-relaxed bg-paper/85 backdrop-blur-sm border border-rule p-3 sm:p-5 md:p-6"
           >
             An independent production company based in Calgary, Alberta. We
             partner with brands, agencies, and broadcasters on commercial,
@@ -130,12 +120,12 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* bottom production strip — sits inside the bottom letterbox (7% tall) */}
+      {/* bottom production strip */}
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 2.4, duration: 0.6 }}
-        className="absolute bottom-0 left-0 right-0 h-[7%] z-30 px-5 md:px-14 flex items-center justify-between gap-4 md:gap-8"
+        className="absolute bottom-20 sm:bottom-0 left-0 right-0 h-14 z-40 px-5 md:px-14 flex items-center justify-between gap-4 md:gap-8"
       >
         <div className="flex items-center gap-2 md:gap-3 min-w-0">
           <div className="w-[7px] h-[7px] bg-signal hex animate-pulse shrink-0" />
