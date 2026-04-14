@@ -21,7 +21,7 @@ export default function Hero() {
         initial={{ height: "50%" }}
         animate={{ height: "3.5rem" }}
         transition={{ delay: 0.3, duration: 0.9, ease: easeSlate }}
-        className="absolute bottom-20 sm:bottom-0 left-0 right-0 bg-paper z-20 border-t border-rule"
+        className="absolute bottom-0 left-0 right-0 bg-paper z-20 border-t border-rule"
       />
 
       {/* hero reel plate — replace <img> with a <video> for client's looping reel */}
@@ -70,8 +70,12 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* headline block — pinned inside the viewport with safe zones top & bottom */}
-      <div className="absolute top-40 bottom-16 left-0 right-0 z-30 flex flex-col justify-center sm:justify-end px-5 md:px-14">
+      {/* headline block — uses full viewport as a flex column with safe zones */}
+      <div className="absolute inset-0 z-30 flex flex-col px-5 md:px-14">
+        {/* spacer — pushes content below nav + HUD */}
+        <div className="flex-1 min-h-[10rem]" />
+
+        {/* content */}
         <div className="max-w-[1600px] w-full">
           <h1
             className="h-display text-ink break-words"
@@ -118,6 +122,9 @@ export default function Hero() {
             the same team from first frame to final delivery.
           </motion.p>
         </div>
+
+        {/* bottom spacer — reserves space for the production strip + letterbox */}
+        <div className="shrink-0 h-16 sm:h-20" />
       </div>
 
       {/* bottom production strip */}
@@ -125,7 +132,7 @@ export default function Hero() {
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 2.4, duration: 0.6 }}
-        className="absolute bottom-20 sm:bottom-0 left-0 right-0 h-14 z-40 px-5 md:px-14 flex items-center justify-between gap-4 md:gap-8"
+        className="absolute bottom-0 left-0 right-0 h-14 z-40 px-5 md:px-14 flex items-center justify-between gap-4 md:gap-8"
       >
         <div className="flex items-center gap-2 md:gap-3 min-w-0">
           <div className="w-[7px] h-[7px] bg-signal hex animate-pulse shrink-0" />
